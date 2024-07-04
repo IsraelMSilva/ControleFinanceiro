@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro.Domain.Entities
 {
-    public class TipoCredito : Tipo
+    public class TipoEntrada : Tipo
     {
-        private TipoCredito() { }
+        private TipoEntrada() { }
 
         private Guid _id;
         private string? _descricao;

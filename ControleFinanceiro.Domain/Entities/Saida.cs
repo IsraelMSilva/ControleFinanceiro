@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro.Domain.Entities
 {
-    public class Despesa
+    public class Saida
     {
-        private Despesa() { }
+        private Saida() { }
 
 		private Guid _id;
-        private Guid _idTipoDespesa;
+        private Guid _idTipoSaida;
         private decimal _valor;
         private Guid _idTipoFormaPagamento;
         private DateTime _dataVencimento;
@@ -30,10 +30,10 @@ namespace ControleFinanceiro.Domain.Entities
 			set { _valor = value; }
 		}
 
-		public Guid IdTipoDespesa
-		{
-			get { return _idTipoDespesa; }
-			set { _idTipoDespesa = value; }
+		public Guid IdTipoSaida
+        {
+			get { return _idTipoSaida; }
+			set { _idTipoSaida = value; }
 		}
 
 		public Guid IdTipoFormaPagamento
@@ -61,7 +61,7 @@ namespace ControleFinanceiro.Domain.Entities
 		}
 
 		public virtual Parcela Parcela { get; set; }
-		public virtual TipoDespesa TipoDespesa { get; set; }
+		public virtual TipoSaida TipoSaida { get; set; }
 		public virtual TipoFormaPagamento FormaPagamento { get; set;}
 	
 	}

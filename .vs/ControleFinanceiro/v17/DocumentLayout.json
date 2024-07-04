@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\tipolancamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\tipolancamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\tiposaida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\tiposaida.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\lancamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\lancamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\parcela.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\parcela.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\tipoformapagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\tipoformapagamento.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\tipoentrada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\tipoentrada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|c:\\users\\israe\\onedrive\\documentos\\controlefinanceiro\\controlefinanceiro.domain\\entities\\tipocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC7A3DED-FD4F-4F6F-9DE8-1DD0604CCFBD}|ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj|solutionrelative:controlefinanceiro.domain\\entities\\tipocategoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TipoSaida.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoSaida.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\TipoSaida.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoSaida.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\TipoSaida.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T00:13:16.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TipoLancamento.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoLancamento.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\TipoLancamento.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoLancamento.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\TipoLancamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T00:13:04.181Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TipoFormaPagamento.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoFormaPagamento.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\TipoFormaPagamento.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoFormaPagamento.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\TipoFormaPagamento.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T00:11:54.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TipoEntrada.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoEntrada.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\TipoEntrada.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoEntrada.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\TipoEntrada.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T00:11:48.397Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TipoCategoria.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoCategoria.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\TipoCategoria.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\TipoCategoria.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\TipoCategoria.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T00:11:17.013Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Parcela.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\Parcela.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\Parcela.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\Parcela.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\Parcela.cs",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAxwA8AAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T00:11:05.461Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Lancamento.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\Lancamento.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\Lancamento.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\Lancamento.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\Lancamento.cs",
+              "ViewState": "AQIAABgAAAAAAAAAAAAowDAAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T00:07:46.589Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\Usuario.cs",
+              "RelativeDocumentMoniker": "ControleFinanceiro.Domain\\Entities\\Usuario.cs",
+              "ToolTip": "C:\\Users\\israe\\OneDrive\\Documentos\\ControleFinanceiro\\ControleFinanceiro.Domain\\Entities\\Usuario.cs",
+              "RelativeToolTip": "ControleFinanceiro.Domain\\Entities\\Usuario.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T23:55:52.069Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

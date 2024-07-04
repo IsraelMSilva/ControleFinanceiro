@@ -10,6 +10,7 @@ namespace ControleFinanceiro.Domain.Entities
     {
         private Guid _id;
         private string? _descricao;
+        private Guid _idTipoSaida;
 
         public override Guid Id
         {
@@ -23,15 +24,13 @@ namespace ControleFinanceiro.Domain.Entities
             set { _descricao = value; }
         }
 
-        private Guid _idTipoDespesa;
-
-        public Guid IdTipoDespesa
+        public Guid IdTipoSaida
         {
-            get { return _idTipoDespesa; }
-            set { _idTipoDespesa = value; }
+            get { return _idTipoSaida; }
+            set { _idTipoSaida = value; }
         }
 
-        public virtual TipoDespesa? TipoDespesa { get; set; }
+        public virtual TipoSaida? TipoSaida { get; set; }
 
     }
 }
