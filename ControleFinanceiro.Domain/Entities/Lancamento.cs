@@ -50,5 +50,39 @@ namespace ControleFinanceiro.Domain.Entities
         public virtual Entrada Entrada { get; set; }
         public virtual TipoLancamento TipoLancamento { get; set; }
 
+        public static Lancamento CadastrarLancamento(DateTime dataLancamento, Guid idTipoLancamento, Guid idSaida, Guid idEntrada)
+        {
+            if (dataLancamento == DateTime.MinValue)
+                throw new ArgumentException("Informe a data do lançamento");
+
+            Lancamento lancamento = new() { Id = Guid.NewGuid(), Data = dataLancamento, TipoLancamentoId = idTipoLancamento, IdSaida = idSaida, IdEntrada = idEntrada };
+
+            return lancamento;
+        }
+
+        public void EditarLancamento(DateTime dataLancamento, Guid idTipoLancamento, Guid idSaida, Guid idEntrada)
+        {
+            if (dataLancamento == DateTime.MinValue)
+                throw new ArgumentException("Informe a data do lançamento");
+
+            _data = dataLancamento;
+            _tipoLancamentoId = idTipoLancamento;
+            _idSaida = idSaida;
+            _idEntrada = idEntrada;
+        }
+
+        public void EditarDataLancamento(DateTime dataLancamento)
+        {
+            if (dataLancamento == DateTime.MinValue)
+                throw new ArgumentException("Informe a data de vencimento");
+
+            _data = dataLancamento;
+        }
+
+        public void EditarIdTipoLancamento(Guid idTipoLancamento)
+        {
+            _tipoLancamentoId = idTipoLancamento;
+        }
+
     }
 }
