@@ -24,5 +24,20 @@ namespace ControleFinanceiro.Domain.Entities
             get { return _descricao; }
             set { _descricao = value; }
         }
+
+        public static TipoEntrada AdicionarTipoEntrada(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+                throw new ArgumentNullException(nameof(descricao));
+
+            TipoEntrada tipoEntrada = new() { Descricao = descricao };
+
+            return tipoEntrada;
+        }
+
+        public void AtualizarTipoEntrada(string descricao)
+        {
+            Descricao = descricao;
+        }
     }
 }
