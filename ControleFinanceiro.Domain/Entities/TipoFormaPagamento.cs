@@ -22,5 +22,20 @@ namespace ControleFinanceiro.Domain.Entities
             get { return _descricao; }
             set { _descricao = value; }
         }
-    }
+
+		public static TipoFormaPagamento AdicionarFormaPagamento(string descricao)
+		{
+			if (string.IsNullOrWhiteSpace(descricao))
+				throw new ArgumentNullException(nameof(descricao));
+
+			TipoFormaPagamento tipoFormaPagamento = new() { Descricao = descricao };
+
+			return tipoFormaPagamento;
+		}
+
+		public void AtualizarFormaPagamento(string descricao)
+		{
+			Descricao = descricao;
+		}
+	}
 }

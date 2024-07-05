@@ -41,10 +41,8 @@ namespace ControleFinanceiro.Domain.Entities
 
         public static Entrada CadastrarEntrada(decimal valor, string observacao, Guid idTipoEntrada)
         {
-
             if (valor == 0)
                 throw new ArgumentException("Informe o valor");
-
 
             Entrada entrada = new() { Id = Guid.NewGuid(), Valor = valor, IdTipoEntrada = idTipoEntrada, Observacao = observacao };
 
