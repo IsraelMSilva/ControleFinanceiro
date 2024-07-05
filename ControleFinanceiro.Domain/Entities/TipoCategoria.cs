@@ -32,5 +32,20 @@ namespace ControleFinanceiro.Domain.Entities
 
         public virtual TipoSaida? TipoSaida { get; set; }
 
+        public static TipoCategoria AdicionarTipoCategoria(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+                throw new ArgumentNullException(nameof(descricao));
+
+            TipoCategoria tipoCategoria = new() { Descricao = descricao };
+
+            return tipoCategoria;
+        }
+
+        public void AtualizarTipoCategoria(string descricao)
+        {
+            Descricao = descricao;
+        }
+
     }
 }
