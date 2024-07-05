@@ -60,6 +60,71 @@ namespace ControleFinanceiro.Domain.Entities
 			set { _idParcela = value; }
 		}
 
+		public static Saida CadastrarSaida(decimal valor, Guid idTipoSaida, Guid idTipoFormaPagamento, DateTime dataVencimento, string observacao, Guid idParcela)
+		{
+			if(valor == 0)
+				throw new ArgumentException("Informe o valor");
+
+			if (dataVencimento == DateTime.MinValue)
+				throw new ArgumentException("Informe a data de vencimento");
+
+			Saida saida = new() { Id = Guid.NewGuid(), Valor = valor, IdTipoSaida = idTipoSaida, IdTipoFormaPagamento = idTipoFormaPagamento, DataVencimento = dataVencimento,  Observacao = observacao, IdParcela = idParcela };
+
+			return saida;
+		}
+
+		public void EditarSaida(decimal valor, Guid idTipoSaida, Guid idTipoFormaPagamento, DateTime dataVencimento, string observacao, Guid idParcela)
+		{
+			if (valor == 0)
+				throw new ArgumentException("Informe o valor");
+
+			if (dataVencimento == DateTime.MinValue)
+				throw new ArgumentException("Informe a data de vencimento");
+
+			_valor = valor;
+			_idTipoSaida = idTipoSaida;
+			_idTipoFormaPagamento = idTipoFormaPagamento;
+			_dataVencimento = dataVencimento;
+			_observacao = observacao;
+			_idParcela = idParcela;
+		}
+
+		public void EditarValor(decimal valor)
+		{
+			if (valor == 0)
+				throw new ArgumentException("Informe o valor");
+
+			_valor = valor;
+		}
+
+		public void EditarTipoSaida(Guid idTipoSaida)
+		{
+			_idTipoSaida = idTipoSaida;
+		}
+
+		public void EditarTipoFormaPagamento(Guid idTipoFormaPagamento)
+		{
+			_idTipoFormaPagamento = idTipoFormaPagamento;
+		}
+
+		public void EditarDataVencimento(DateTime dataVencimento)
+		{
+			if (dataVencimento == DateTime.MinValue)
+				throw new ArgumentException("Informe a data de vencimento");
+
+			_dataVencimento = dataVencimento;
+		}
+
+		public void EditarObservacao(string observacao)
+		{
+			_observacao = observacao;
+		}
+
+		public void EditarParcela(Guid idParcela)
+		{
+			_idParcela = idParcela;
+		}
+
 		public virtual Parcela Parcela { get; set; }
 		public virtual TipoSaida TipoSaida { get; set; }
 		public virtual TipoFormaPagamento FormaPagamento { get; set;}

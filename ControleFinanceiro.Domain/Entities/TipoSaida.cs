@@ -23,6 +23,21 @@ namespace ControleFinanceiro.Domain.Entities
             set { _descricao = value; }
         }
 
-        public virtual IEnumerable<TipoCategoria>? TipoCategorias { get; set; }
+		public static TipoSaida AdicionarTipoSaida(string descricao)
+		{
+			if (string.IsNullOrWhiteSpace(descricao))
+				throw new ArgumentNullException(nameof(descricao));
+
+			TipoSaida tipoSaida = new() { Descricao = descricao };
+
+			return tipoSaida;
+		}
+
+		public void AtualizarTipoSaida(string descricao)
+		{
+			Descricao = descricao;
+		}
+
+		public virtual IEnumerable<TipoCategoria>? TipoCategorias { get; set; }
     }
 }
