@@ -30,14 +30,14 @@ namespace ControleFinanceiro.Domain.Entities
             if (string.IsNullOrWhiteSpace(descricao))
                 throw new ArgumentNullException(nameof(descricao));
 
-            TipoEntrada tipoEntrada = new() { Descricao = descricao };
+            TipoEntrada tipoEntrada = new() { Id = Guid.NewGuid(), Descricao = descricao };
 
             return tipoEntrada;
         }
 
         public void AtualizarTipoEntrada(string descricao)
         {
-            Descricao = descricao;
+            _descricao = descricao;
         }
     }
 }

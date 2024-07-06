@@ -66,11 +66,11 @@ namespace ControleFinanceiro.Domain.Entities
 			if (numeroParcela == 0)
 				throw new ArgumentException("Informe o número da parcela");
 
-			//if (valorPago == 0)
-			//	throw new ArgumentException("Informe o valor pago");
+			if (valorPago == 0)
+				throw new ArgumentException("Informe o valor pago");
 
-			//if (dataPagamento == DateTime.MinValue)
-			//	throw new ArgumentException("Informe a data de pagamento");
+			if (dataPagamento == DateTime.MinValue)
+				throw new ArgumentException("Informe a data de pagamento");
 
 			_totalParcela = totalParcela;
 			_numeroParcela = numeroParcela;
@@ -96,16 +96,16 @@ namespace ControleFinanceiro.Domain.Entities
 
 		public void EditarValorPago(decimal valorPago)
 		{
-			//if (valorPago == 0)
-			//	throw new ArgumentException("Informe o valor pago");
+			if (valorPago == 0)
+				throw new ArgumentException("Informe o valor pago");
 
 			_valorPago = valorPago;
 		}
 
 		public void EditarDataPagamento(DateTime dataPagamento)
 		{
-			//if (dataPagamento == DateTime.MinValue)
-			//	throw new ArgumentException("Informe a data de pagamento");
+			if (dataPagamento == DateTime.MinValue)
+				throw new ArgumentException("Informe a data de pagamento");
 
 			_dataPagamento = dataPagamento;
 		}

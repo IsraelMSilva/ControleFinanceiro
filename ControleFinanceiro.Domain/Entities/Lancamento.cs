@@ -15,35 +15,42 @@ namespace ControleFinanceiro.Domain.Entities
         private Guid _tipoLancamentoId;
         private Guid _idSaida;
         private Guid _idEntrada;
+        private bool _ativo;
 
         public Guid Id
         {
             get { return _id; }
-            set { _id = value; }
+            private set { _id = value; }
         }
 
         public DateTime Data
         {
             get { return _data; }
-            set { _data = value; }
+            private set { _data = value; }
         }
 
         public Guid TipoLancamentoId
         {
             get { return _tipoLancamentoId; }
-            set { _tipoLancamentoId = value; }
+            private set { _tipoLancamentoId = value; }
         }
 
         public Guid IdSaida
         {
             get { return _idSaida; }
-            set { _idSaida = value; }
+            private set { _idSaida = value; }
         }
 
         public Guid IdEntrada
         {
             get { return _idEntrada; }
-            set { _idEntrada = value; }
+            private set { _idEntrada = value; }
+        }
+
+        public bool Ativo
+        {
+            get { return _ativo; }
+            private set { _ativo = value; }
         }
 
         public virtual Saida Saida { get; set; }
@@ -55,7 +62,7 @@ namespace ControleFinanceiro.Domain.Entities
             if (dataLancamento == DateTime.MinValue)
                 throw new ArgumentException("Informe a data do lançamento");
 
-            Lancamento lancamento = new() { Id = Guid.NewGuid(), Data = dataLancamento, TipoLancamentoId = idTipoLancamento, IdSaida = idSaida, IdEntrada = idEntrada };
+            Lancamento lancamento = new() { Id = Guid.NewGuid(), Data = dataLancamento, TipoLancamentoId = idTipoLancamento, IdSaida = idSaida, IdEntrada = idEntrada, Ativo = true };
 
             return lancamento;
         }
@@ -79,10 +86,16 @@ namespace ControleFinanceiro.Domain.Entities
             _data = dataLancamento;
         }
 
-        public void EditarIdTipoLancamento(Guid idTipoLancamento)
+        public void EditarTipoLancamento(Guid idTipoLancamento, Guid idSaida, Guid idEntrada)
         {
             _tipoLancamentoId = idTipoLancamento;
+            _idSaida = idSaida;
+            _idEntrada = idEntrada;
         }
 
+        public void InativarLancamento()
+        {
+            _ativo = false;
+        }
     }
 }

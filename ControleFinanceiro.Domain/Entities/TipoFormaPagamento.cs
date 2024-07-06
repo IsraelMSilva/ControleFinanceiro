@@ -28,14 +28,17 @@ namespace ControleFinanceiro.Domain.Entities
 			if (string.IsNullOrWhiteSpace(descricao))
 				throw new ArgumentNullException(nameof(descricao));
 
-			TipoFormaPagamento tipoFormaPagamento = new() { Descricao = descricao };
+			TipoFormaPagamento tipoFormaPagamento = new() { Id = Guid.NewGuid(), Descricao = descricao };
 
 			return tipoFormaPagamento;
 		}
 
 		public void AtualizarFormaPagamento(string descricao)
 		{
-			Descricao = descricao;
+            if (string.IsNullOrWhiteSpace(descricao))
+                throw new ArgumentNullException(nameof(descricao));
+
+            _descricao = descricao;
 		}
 	}
 }

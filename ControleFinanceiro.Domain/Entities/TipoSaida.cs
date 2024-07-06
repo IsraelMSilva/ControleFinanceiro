@@ -28,14 +28,18 @@ namespace ControleFinanceiro.Domain.Entities
 			if (string.IsNullOrWhiteSpace(descricao))
 				throw new ArgumentNullException(nameof(descricao));
 
-			TipoSaida tipoSaida = new() { Descricao = descricao };
+			TipoSaida tipoSaida = new() { Id = Guid.NewGuid(), Descricao = descricao };
 
 			return tipoSaida;
 		}
 
 		public void AtualizarTipoSaida(string descricao)
 		{
-			Descricao = descricao;
+            if (string.IsNullOrWhiteSpace(descricao))
+                throw new ArgumentNullException(nameof(descricao));
+
+            
+            _descricao = descricao;
 		}
 
 		public virtual IEnumerable<TipoCategoria>? TipoCategorias { get; set; }
