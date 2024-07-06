@@ -12,17 +12,24 @@ namespace ControleFinanceiro.Domain.Entities
 
         private Guid _id;
         private string? _descricao;
+        private bool _ativo;
 
         public override Guid Id
         {
             get { return _id; }
-            set { _id = value; }
+            private set { _id = value; }
         }
 
         public override string? Descricao
         {
             get { return _descricao; }
-            set { _descricao = value; }
+            private set { _descricao = value; }
+        }
+
+        public bool Ativo
+        {
+            get { return _ativo; }
+            private set { _ativo = value; }
         }
 
         public static TipoEntrada AdicionarTipoEntrada(string descricao)
@@ -38,6 +45,11 @@ namespace ControleFinanceiro.Domain.Entities
         public void AtualizarTipoEntrada(string descricao)
         {
             _descricao = descricao;
+        }
+
+        public void InativarTipoEntrada()
+        {
+            _ativo = false;
         }
     }
 }

@@ -11,23 +11,30 @@ namespace ControleFinanceiro.Domain.Entities
         private Guid _id;
         private string? _descricao;
         private Guid _idTipoSaida;
+        private bool _ativo;
 
         public override Guid Id
         {
             get { return _id; }
-            set { _id = value; }
+            private set { _id = value; }
         }
 
         public override string? Descricao
         {
             get { return _descricao; }
-            set { _descricao = value; }
+            private set { _descricao = value; }
         }
 
         public Guid IdTipoSaida
         {
             get { return _idTipoSaida; }
-            set { _idTipoSaida = value; }
+            private set { _idTipoSaida = value; }
+        }
+
+        public bool Ativo
+        {
+            get { return _ativo; }
+            private set { _ativo = value; }
         }
 
         public virtual TipoSaida? TipoSaida { get; set; }
@@ -45,6 +52,11 @@ namespace ControleFinanceiro.Domain.Entities
         public void AtualizarTipoCategoria(string descricao)
         {
             _descricao = descricao;
+        }
+
+        public void InativarTipoCategoria()
+        {
+            _ativo = false;
         }
 
     }
