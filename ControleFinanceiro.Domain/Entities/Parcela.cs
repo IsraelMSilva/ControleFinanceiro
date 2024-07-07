@@ -14,35 +14,42 @@ namespace ControleFinanceiro.Domain.Entities
         private int _numeroParcela;
         private int _totalParcela;
         private DateTime _dataPagamento;
-		 
-        public Guid Id
+		private bool _ativo;
+
+		public Guid Id
 		{
 			get { return _id; }
-			set { _id = value; }
+			private set { _id = value; }
 		}
 
 		public int TotalParcela
 		{
 			get { return _totalParcela; }
-			set { _totalParcela = value; }
+			private set { _totalParcela = value; }
 		}
 
 		public int NumeroParcela
 		{
 			get { return _numeroParcela; }
-			set { _numeroParcela = value; }
+			private set { _numeroParcela = value; }
 		}
 
 		public decimal ValorPago
 		{
 			get { return _valorPago; }
-			set { _valorPago = value; }
+			private set { _valorPago = value; }
 		}
 
 		public DateTime DataPagamento
 		{
 			get { return _dataPagamento; }
-			set { _dataPagamento = value; }
+			private set { _dataPagamento = value; }
+		}
+
+		public bool Ativo
+		{
+			get { return _ativo; }
+			private set { _ativo = value; }
 		}
 
 		public static Parcela CadastrarParcela(int totalParcela, int numeroParcela, decimal valorPago, DateTime dataPagamento)
@@ -108,6 +115,11 @@ namespace ControleFinanceiro.Domain.Entities
 				throw new ArgumentException("Informe a data de pagamento");
 
 			_dataPagamento = dataPagamento;
+		}
+
+		public void InativarParcela()
+		{
+			_ativo = false;
 		}
 	}
 }

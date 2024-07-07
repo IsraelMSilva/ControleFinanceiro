@@ -17,48 +17,59 @@ namespace ControleFinanceiro.Domain.Entities
         private DateTime _dataVencimento;
         private string _observacao;
         private Guid _idParcela;
+		private bool _ativo;
 
-        public Guid Id
+		public Guid Id
 		{
 			get { return _id; }
-			set { _id = value; }
+			private set { _id = value; }
 		}
 
 		public decimal Valor
 		{
 			get { return _valor; }
-			set { _valor = value; }
+			private set { _valor = value; }
 		}
 
 		public Guid IdTipoSaida
         {
 			get { return _idTipoSaida; }
-			set { _idTipoSaida = value; }
+			private set { _idTipoSaida = value; }
 		}
 
 		public Guid IdTipoFormaPagamento
 		{
 			get { return _idTipoFormaPagamento; }
-			set { _idTipoFormaPagamento = value; }
+			private set { _idTipoFormaPagamento = value; }
 		}
 
 		public DateTime DataVencimento
 		{
 			get { return _dataVencimento; }
-			set { _dataVencimento = value; }
+			private set { _dataVencimento = value; }
 		}
 
 		public string Observacao
 		{
 			get { return _observacao; }
-			set { _observacao = value; }
+			private set { _observacao = value; }
 		}
 
 		public Guid IdParcela
 		{
 			get { return _idParcela; }
-			set { _idParcela = value; }
+			private set { _idParcela = value; }
 		}
+
+		public bool Ativo
+		{
+			get { return _ativo; }
+			private set { _ativo = value; }
+		}
+
+		public virtual Parcela Parcela { get; set; }
+		public virtual TipoSaida TipoSaida { get; set; }
+		public virtual TipoFormaPagamento FormaPagamento { get; set; }
 
 		public static Saida CadastrarSaida(decimal valor, Guid idTipoSaida, Guid idTipoFormaPagamento, DateTime dataVencimento, string observacao, Guid idParcela)
 		{
@@ -125,9 +136,9 @@ namespace ControleFinanceiro.Domain.Entities
 			_idParcela = idParcela;
 		}
 
-		public virtual Parcela Parcela { get; set; }
-		public virtual TipoSaida TipoSaida { get; set; }
-		public virtual TipoFormaPagamento FormaPagamento { get; set;}
-	
+		public void InativarSaida()
+		{
+			_ativo = false;
+		}
 	}
 }

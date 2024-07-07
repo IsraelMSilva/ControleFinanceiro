@@ -10,8 +10,9 @@ namespace ControleFinanceiro.Domain.Entities
     {
         private Guid _id;
         private string? _descricao;
+		private bool _ativo;
 
-        public override Guid Id
+		public override Guid Id
         {
             get { return _id; }
             set { _id = value; }
@@ -22,6 +23,14 @@ namespace ControleFinanceiro.Domain.Entities
             get { return _descricao; }
             set { _descricao = value; }
         }
+
+		public bool Ativo
+		{
+			get { return _ativo; }
+			private set { _ativo = value; }
+		}
+
+		public virtual IEnumerable<TipoCategoria>? TipoCategorias { get; set; }
 
 		public static TipoSaida AdicionarTipoSaida(string descricao)
 		{
@@ -42,6 +51,9 @@ namespace ControleFinanceiro.Domain.Entities
             _descricao = descricao;
 		}
 
-		public virtual IEnumerable<TipoCategoria>? TipoCategorias { get; set; }
+		public void InativarTipoSaida()
+		{
+			_ativo = false;
+		}
     }
 }

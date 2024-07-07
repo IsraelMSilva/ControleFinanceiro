@@ -12,8 +12,9 @@ namespace ControleFinanceiro.Domain.Entities
 
         private Guid _id;
         private string? _descricao;
+		private bool _ativo;
 
-        public override Guid Id
+		public override Guid Id
         {
             get { return _id; }
             set { _id = value; }
@@ -25,7 +26,13 @@ namespace ControleFinanceiro.Domain.Entities
             set { _descricao = value; }
         }
 
-        public static TipoLancamento AdicionarTipoLancamento(string descricao)
+		public bool Ativo
+		{
+			get { return _ativo; }
+			private set { _ativo = value; }
+		}
+
+		public static TipoLancamento AdicionarTipoLancamento(string descricao)
         {
             if (string.IsNullOrWhiteSpace(descricao))
                 throw new ArgumentNullException(nameof(descricao));
@@ -39,5 +46,10 @@ namespace ControleFinanceiro.Domain.Entities
         {
             _descricao = descricao;
         }
-    }
+
+		public void InativarTipoLancamento()
+		{
+			_ativo = false;
+		}
+	}
 }

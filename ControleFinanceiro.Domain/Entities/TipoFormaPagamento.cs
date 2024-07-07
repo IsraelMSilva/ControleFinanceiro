@@ -10,8 +10,9 @@ namespace ControleFinanceiro.Domain.Entities
     {
         private Guid _id;
         private string? _descricao;
+		private bool _ativo;
 
-        public override Guid Id
+		public override Guid Id
         {
             get { return _id; }
             set { _id = value; }
@@ -22,6 +23,12 @@ namespace ControleFinanceiro.Domain.Entities
             get { return _descricao; }
             set { _descricao = value; }
         }
+
+		public bool Ativo
+		{
+			get { return _ativo; }
+			private set { _ativo = value; }
+		}
 
 		public static TipoFormaPagamento AdicionarFormaPagamento(string descricao)
 		{
@@ -39,6 +46,11 @@ namespace ControleFinanceiro.Domain.Entities
                 throw new ArgumentNullException(nameof(descricao));
 
             _descricao = descricao;
+		}
+
+		public void InativarTipoFormaPagamento()
+		{
+			_ativo = false;
 		}
 	}
 }
