@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro.Domain.Entities
 {
-    public class TipoCategoria : Tipo
+    public class TipoCategoria
     {
         private Guid _id;
         private string? _descricao;
         private Guid _idTipoSaida;
         private bool _ativo;
 
-        public override Guid Id
+        public  Guid Id
         {
             get { return _id; }
             private set { _id = value; }
         }
 
-        public override string? Descricao
+        public string? Descricao
         {
             get { return _descricao; }
             private set { _descricao = value; }

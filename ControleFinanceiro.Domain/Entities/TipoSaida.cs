@@ -6,54 +6,54 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro.Domain.Entities
 {
-    public class TipoSaida : Tipo
+    public class TipoSaida
     {
         private Guid _id;
         private string? _descricao;
-		private bool _ativo;
+        private bool _ativo;
 
-		public override Guid Id
+        public Guid Id
         {
             get { return _id; }
-            set { _id = value; }
+            private set { _id = value; }
         }
 
-        public override string? Descricao
+        public string? Descricao
         {
             get { return _descricao; }
-            set { _descricao = value; }
+            private set { _descricao = value; }
         }
 
-		public bool Ativo
-		{
-			get { return _ativo; }
-			private set { _ativo = value; }
-		}
+        public bool Ativo
+        {
+            get { return _ativo; }
+            private set { _ativo = value; }
+        }
 
-		public virtual IEnumerable<TipoCategoria>? TipoCategorias { get; set; }
+        public virtual IEnumerable<TipoCategoria>? TipoCategorias { get; set; }
 
-		public static TipoSaida AdicionarTipoSaida(string descricao)
-		{
-			if (string.IsNullOrWhiteSpace(descricao))
-				throw new ArgumentNullException(nameof(descricao));
-
-			TipoSaida tipoSaida = new() { Id = Guid.NewGuid(), Descricao = descricao };
-
-			return tipoSaida;
-		}
-
-		public void AtualizarTipoSaida(string descricao)
-		{
+        public static TipoSaida AdicionarTipoSaida(string descricao)
+        {
             if (string.IsNullOrWhiteSpace(descricao))
                 throw new ArgumentNullException(nameof(descricao));
 
-            
-            _descricao = descricao;
-		}
+            TipoSaida tipoSaida = new() { Id = Guid.NewGuid(), Descricao = descricao };
 
-		public void InativarTipoSaida()
-		{
-			_ativo = false;
-		}
+            return tipoSaida;
+        }
+
+        public void AtualizarTipoSaida(string descricao)
+        {
+            if (string.IsNullOrWhiteSpace(descricao))
+                throw new ArgumentNullException(nameof(descricao));
+
+
+            _descricao = descricao;
+        }
+
+        public void InativarTipoSaida()
+        {
+            _ativo = false;
+        }
     }
 }

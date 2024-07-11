@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro.Domain.Entities
 {
-    public class TipoFormaPagamento : Tipo
+    public class TipoFormaPagamento 
     {
         private Guid _id;
         private string? _descricao;
 		private bool _ativo;
 
-		public override Guid Id
+		public Guid Id
         {
             get { return _id; }
-            set { _id = value; }
+            private set { _id = value; }
         }
 
-        public override string? Descricao
+        public string? Descricao
         {
             get { return _descricao; }
-            set { _descricao = value; }
+            private set { _descricao = value; }
         }
 
 		public bool Ativo

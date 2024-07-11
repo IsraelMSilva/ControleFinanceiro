@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ControleFinanceiro.Domain.Entities
 {
-    public class TipoEntrada : Tipo
+    public class TipoEntrada 
     {
         private TipoEntrada() { }
 
@@ -14,13 +14,13 @@ namespace ControleFinanceiro.Domain.Entities
         private string? _descricao;
         private bool _ativo;
 
-        public override Guid Id
+        public Guid Id
         {
             get { return _id; }
             private set { _id = value; }
         }
 
-        public override string? Descricao
+        public string? Descricao
         {
             get { return _descricao; }
             private set { _descricao = value; }
