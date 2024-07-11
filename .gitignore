@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+/.vs/ControleFinanceiro/DesignTimeBuild/.dtbcache.v2
+/.vs/ControleFinanceiro/v17/.suo
+/.vs/ControleFinanceiro/v17/DocumentLayout.json
