@@ -9,5 +9,6 @@ namespace ControleFinanceiro.Domain.Repositories
 {
     public interface IUsuarioRepository : IRepositoryCrud<Usuario>
     {
+        Task<IEnumerable<Usuario>> ObterUsuariosPorNome(string nome);
     }
 }

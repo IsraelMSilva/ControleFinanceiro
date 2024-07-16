@@ -65,27 +65,27 @@ namespace ControleFinanceiro.Domain.Entities
         public Guid Id
         {
             get { return _id; }
-            set { _id = value; }
+            private set { _id = value; }
         }
 
         public string Nome
         {
             get { return _nome; }
-            set { _nome = value; }
+            private set { _nome = value; }
         }
 
 
         public string Senha
         {
             get { return _senha; }
-            set { _senha = value; }
+            private set { _senha = value; }
         }
 
 
         public bool Ativo
         {
             get { return _ativo; }
-            set { _ativo = value; }
+            private set { _ativo = value; }
         }
 
     }

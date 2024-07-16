@@ -44,7 +44,12 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 
         public async Task<IEnumerable<Usuario>> ObterTodosAsync()
         {
-            return await _appDbContext.Usuarios.ToListAsync();
+            return await _appDbContext.Usuarios.Where(x => x.Ativo).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Usuario>> ObterUsuariosPorNome(string nome)
+        {
+            return await _appDbContext.Usuarios.Where(a => a.Nome.Contains(nome) && a.Ativo).ToListAsync();
         }
     }
 }
