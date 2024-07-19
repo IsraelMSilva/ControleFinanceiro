@@ -9,5 +9,6 @@ namespace ControleFinanceiro.Domain.Repositories
 {
     public interface ITipoCategoriaRepository : IRepositoryCrud<TipoCategoria>
     {
+        Task<IEnumerable<TipoCategoria>> ObterTipoCategoriaPorDescricao(string descricao);
     }
 }
