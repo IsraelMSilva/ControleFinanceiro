@@ -1,5 +1,7 @@
 ﻿using ControleFinanceiro.Domain.Entities;
 using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,45 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 {
     public class TipoSaidaRepository : ITipoSaidaRepository
     {
-        public Task<TipoSaida> AtualizarAsync(TipoSaida entity)
-        {
-            throw new NotImplementedException();
-        }
+		private readonly AppDbContext _appDbContext;
+		public TipoSaidaRepository(AppDbContext appDbContext)
+		{
+			_appDbContext = appDbContext;
+		}
 
-        public Task<TipoSaida> CriarAsync(TipoSaida entity)
+		public async Task<TipoSaida> AtualizarAsync(TipoSaida entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.TipoSaida.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task DeletarAsync(TipoSaida entity)
+        public async Task<TipoSaida> CriarAsync(TipoSaida entity)
         {
-            throw new NotImplementedException();
-        }
+			await _appDbContext.TipoSaida.AddAsync(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task<TipoSaida> ObterPorIdAsync(Guid id)
+        public async Task DeletarAsync(TipoSaida entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.TipoSaida.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+		}
 
-        public Task<IEnumerable<TipoSaida>> ObterTodosAsync()
+        public async Task<TipoSaida> ObterPorIdAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
-    }
+			return await _appDbContext.TipoSaida.FindAsync(id);
+		}
+
+        public async Task<IEnumerable<TipoSaida>> ObterTodosAsync()
+        {
+			return await _appDbContext.TipoSaida.Where(x => x.Ativo).ToListAsync();
+		}
+
+		public async Task<IEnumerable<TipoSaida>> ObterTipoSaidaPorDescricao(string descricao)
+		{
+			return await _appDbContext.TipoSaida.Where(a => a.Descricao.Contains(descricao) && a.Ativo).ToListAsync();
+		}
+	}
 }

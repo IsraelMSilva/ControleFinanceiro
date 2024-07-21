@@ -1,5 +1,7 @@
 ﻿using ControleFinanceiro.Domain.Entities;
 using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,40 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 {
     public class SaidaRepository : ISaidaRepository
     {
-        public Task<Saida> AtualizarAsync(Saida entity)
-        {
-            throw new NotImplementedException();
-        }
+		private readonly AppDbContext _appDbContext;
+		public SaidaRepository(AppDbContext appDbContext)
+		{
+			_appDbContext = appDbContext;
+		}
 
-        public Task<Saida> CriarAsync(Saida entity)
+		public async Task<Saida> AtualizarAsync(Saida entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.Saidas.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task DeletarAsync(Saida entity)
+        public async Task<Saida> CriarAsync(Saida entity)
         {
-            throw new NotImplementedException();
-        }
+			await _appDbContext.Saidas.AddAsync(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task<Saida> ObterPorIdAsync(Guid id)
+        public async Task DeletarAsync(Saida entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.Saidas.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+		}
 
-        public Task<IEnumerable<Saida>> ObterTodosAsync()
+        public async Task<Saida> ObterPorIdAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
+			return await _appDbContext.Saidas.FindAsync(id);
+		}
+
+        public async Task<IEnumerable<Saida>> ObterTodosAsync()
+        {
+			return await _appDbContext.Saidas.Where(x => x.Ativo).ToListAsync();
+		}
     }
 }

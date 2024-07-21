@@ -11,8 +11,12 @@ namespace ControleFinanceiro.Infrastructure.Data
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
         public DbSet<Usuario> Usuarios { get; set; }
+		public DbSet<Saida> Saidas { get; set; }
+		public DbSet<TipoCategoria> TipoCategoria { get; set; }
+		public DbSet<TipoSaida> TipoSaida { get; set; }
+		public DbSet<TipoFormaPagamento> TipoFormaPagamento { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
             base.OnModelCreating(modelBuilder);

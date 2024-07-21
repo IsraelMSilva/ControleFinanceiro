@@ -17,6 +17,7 @@ namespace ControleFinanceiro.Infrastructure.Repositories
         {
             _appDbContext = appDbContext;
         }
+
         public async Task<Usuario> AtualizarAsync(Usuario entity)
         {
             _appDbContext.Usuarios.Update(entity);

@@ -1,5 +1,7 @@
 ﻿using ControleFinanceiro.Domain.Entities;
 using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,45 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 {
     public class TipoFormaPagamentoRepository : ITipoFormaPagamentoRepository
     {
-        public Task<TipoFormaPagamento> AtualizarAsync(TipoFormaPagamento entity)
-        {
-            throw new NotImplementedException();
-        }
+		private readonly AppDbContext _appDbContext;
+		public TipoFormaPagamentoRepository(AppDbContext appDbContext)
+		{
+			_appDbContext = appDbContext;
+		}
 
-        public Task<TipoFormaPagamento> CriarAsync(TipoFormaPagamento entity)
+		public async Task<TipoFormaPagamento> AtualizarAsync(TipoFormaPagamento entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.TipoFormaPagamento.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task DeletarAsync(TipoFormaPagamento entity)
+        public async Task<TipoFormaPagamento> CriarAsync(TipoFormaPagamento entity)
         {
-            throw new NotImplementedException();
-        }
+			await _appDbContext.TipoFormaPagamento.AddAsync(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task<TipoFormaPagamento> ObterPorIdAsync(Guid id)
+        public async Task DeletarAsync(TipoFormaPagamento entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.TipoFormaPagamento.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+		}
 
-        public Task<IEnumerable<TipoFormaPagamento>> ObterTodosAsync()
+        public async Task<TipoFormaPagamento> ObterPorIdAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
-    }
+			return await _appDbContext.TipoFormaPagamento.FindAsync(id);
+		}
+
+        public async Task<IEnumerable<TipoFormaPagamento>> ObterTodosAsync()
+        {
+			return await _appDbContext.TipoFormaPagamento.Where(x => x.Ativo).ToListAsync();
+		}
+
+		public async Task<IEnumerable<TipoFormaPagamento>> ObterTipoFormaPagamentoPorDescricao(string descricao)
+		{
+			return await _appDbContext.TipoFormaPagamento.Where(a => a.Descricao.Contains(descricao) && a.Ativo).ToListAsync();
+		}
+	}
 }
