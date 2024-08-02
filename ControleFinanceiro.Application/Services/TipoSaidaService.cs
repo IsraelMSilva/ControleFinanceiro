@@ -50,7 +50,7 @@ namespace ControleFinanceiro.Application.Services
 			if (string.IsNullOrEmpty(descricao))
 				throw new Exception("Insira a descrição para buscar!");
 
-			return await _tipoSaidaRepository.RetornaTipoSaidaPorDescricao(descricao);
+			return await _tipoSaidaRepository.ObterTipoSaidaPorDescricao(descricao);
 		}
 
 		public async Task<TipoSaida> RetornaTipoSaidaPorId(Guid id)

@@ -51,7 +51,7 @@ namespace ControleFinanceiro.Application.Services
 			if (string.IsNullOrEmpty(descricao))
 				throw new Exception("Insira a descrição para buscar!");
 
-			return await _tipoFormaPagamentoRepository.RetornaTipoSaidaPorDescricao(descricao);
+			return await _tipoFormaPagamentoRepository.ObterTipoFormaPagamentoPorDescricao(descricao);
 		}
 
 		public async Task<TipoFormaPagamento> RetornaTipoFormaPagamentoPorId(Guid id)

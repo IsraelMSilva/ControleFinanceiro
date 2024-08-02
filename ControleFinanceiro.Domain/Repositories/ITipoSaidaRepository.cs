@@ -9,6 +9,6 @@ namespace ControleFinanceiro.Domain.Repositories
 {
     public interface ITipoSaidaRepository : IRepositoryCrud<TipoSaida>
     {
-		Task<IEnumerable<TipoSaida>> RetornaTipoSaidaPorDescricao(string descricao);
+		Task<IEnumerable<TipoSaida>> ObterTipoSaidaPorDescricao(string descricao);
 	}
 }

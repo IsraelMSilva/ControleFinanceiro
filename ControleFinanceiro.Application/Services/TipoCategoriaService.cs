@@ -34,7 +34,7 @@ namespace ControleFinanceiro.Application.Services
 			if (retorno == null)
 				throw new Exception("Tipo de Categoria não encontrada!");
 
-			retorno.AtualizarTipoCategoria(alterarTipoCategoriaDTO.Descricao);
+			retorno.AtualizarTipoCategoria(alterarTipoCategoriaDTO.Descricao, alterarTipoCategoriaDTO.IdTipoSaida);
 
 			return await _tipoCategoriaRepository.AtualizarAsync(retorno);
 		}
@@ -55,10 +55,10 @@ namespace ControleFinanceiro.Application.Services
 		{
 			TipoCategoria retorno = await _tipoCategoriaRepository.ObterPorIdAsync(alterarTipoCategoriaIdTipoSaidaDTO.Id);
 
-			//if (retorno == null)
-			//	throw new Exception("Tipo Categoria não encontrado!");
+			if (retorno == null)
+				throw new Exception("Tipo Categoria não encontrado!");
 
-			//retorno.AtualizarTipoCategoriaDescricao(alterarTipoCategoriaIdTipoSaidaDTO.Descricao);
+			retorno.AtualizarIdTipoSaida(alterarTipoCategoriaIdTipoSaidaDTO.IdTipoSaida);
 
 			return await _tipoCategoriaRepository.AtualizarAsync(retorno);
 		}

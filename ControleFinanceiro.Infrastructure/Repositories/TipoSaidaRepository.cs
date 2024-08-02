@@ -52,5 +52,5 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 		{
 			return await _appDbContext.TipoSaida.Where(a => a.Descricao.Contains(descricao) && a.Ativo).ToListAsync();
 		}
-	}
+    }
 }

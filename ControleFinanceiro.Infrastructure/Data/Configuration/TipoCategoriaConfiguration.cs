@@ -15,7 +15,7 @@ namespace ControleFinanceiro.Infrastructure.Data.Configuration
         {
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Descricao).IsRequired().HasMaxLength(150);
-            builder.Property(x => x.IdTipoSaida).IsRequired().HasMaxLength(200);
+            builder.Property(x => x.IdTipoSaida).IsRequired();
             builder.Property(x => x.Ativo).IsRequired();
         }
     }

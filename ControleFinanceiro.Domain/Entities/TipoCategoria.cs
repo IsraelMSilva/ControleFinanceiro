@@ -49,9 +49,20 @@ namespace ControleFinanceiro.Domain.Entities
             return tipoCategoria;
         }
 
-        public void AtualizarTipoCategoria(string descricao)
+        public void AtualizarTipoCategoria(string descricao, Guid idTipoSaida)
+        {
+            _idTipoSaida = idTipoSaida;
+            _descricao = descricao;
+        }
+
+        public void AtualizarTipoCategoriaDescricao(string descricao)
         {
             _descricao = descricao;
+        }
+
+        public void AtualizarIdTipoSaida(Guid idTipoSaida)
+        {
+            _idTipoSaida = idTipoSaida;
         }
 
         public void InativarTipoCategoria()
