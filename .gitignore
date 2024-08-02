@@ -488,3 +488,11 @@ $RECYCLE.BIN/
 /.vs/ControleFinanceiro/v17/.futdcache.v2
 /.vs/ProjectEvaluation/controlefinanceiro.metadata.v7.bin
 /.vs/ProjectEvaluation/controlefinanceiro.projects.v7.bin
+/ControleFinanceiro.Domain/obj/Debug/net8.0/ref/ControleFinanceiro.Domain.dll
+/ControleFinanceiro.Domain/obj/Debug/net8.0/refint/ControleFinanceiro.Domain.dll
+/ControleFinanceiro.Domain/obj/Debug/net8.0/ControleFinanceiro.Domain.AssemblyInfo.cs
+/ControleFinanceiro.Domain/obj/Debug/net8.0/ControleFinanceiro.Domain.pdb
+/ControleFinanceiro.Domain/obj/Debug/net8.0/ControleFinanceiro.Domain.AssemblyInfoInputs.cache
+/ControleFinanceiro.Domain/obj/Debug/net8.0/ControleFinanceiro.Domain.dll
+/ControleFinanceiro.Domain/bin/Debug/net8.0/ControleFinanceiro.Domain.pdb
+/ControleFinanceiro.Domain/bin/Debug/net8.0/ControleFinanceiro.Domain.dll
