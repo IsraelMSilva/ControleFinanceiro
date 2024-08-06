@@ -15,6 +15,7 @@ namespace ControleFinanceiro.Infrastructure.Data
 		public DbSet<TipoCategoria> TipoCategoria { get; set; }
 		public DbSet<TipoSaida> TipoSaida { get; set; }
 		public DbSet<TipoFormaPagamento> TipoFormaPagamento { get; set; }
+		public DbSet<Parcela> Parcelas { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
