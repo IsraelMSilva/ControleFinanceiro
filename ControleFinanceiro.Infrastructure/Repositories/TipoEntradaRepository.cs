@@ -48,6 +48,12 @@ namespace ControleFinanceiro.Infrastructure.Repositories
             return await _appDbContext.TipoEntrada.Where(a => a.Descricao.Contains(descricao) && a.Ativo).ToListAsync();
         }
 
+        public Task<IEnumerable<TipoEntrada>> ObterTipoEntradaPorDescricao(string descricao)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IEnumerable<TipoEntrada>> ObterTodosAsync()
         public async Task<IEnumerable<TipoEntrada>> ObterTodosAsync()
         {
             return await _appDbContext.TipoEntrada.Where(x => x.Ativo).ToListAsync();
