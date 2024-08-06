@@ -17,6 +17,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSingleton<ITipoCategoriaService, TipoCategoriaService>();
 builder.Services.AddSingleton<ITipoCategoriaRepository, TipoCategoriaMock>();
 
+builder.Services.AddSingleton<ITipoSaidaService, TipoSaidaService>();
+builder.Services.AddSingleton<ITipoSaidaRepository, TipoSaidaMock>();
+
+builder.Services.AddSingleton<ISaidaService, SaidaService>();
+builder.Services.AddSingleton<ISaidaRepository, SaidaMock>();
+
+builder.Services.AddSingleton<IParcelaService, ParcelaService>();
+builder.Services.AddSingleton<IParcelaRepository, ParcelaMock>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
