@@ -42,7 +42,12 @@ namespace ControleFinanceiro.Infrastructure.Repositories.Mock
             return Task.FromResult(lancamento);
         }
 
-        public Task<IEnumerable<TipoLancamento>> ObterTodosAsync()
+		public Task<IEnumerable<TipoLancamento>> ObterTipoLancamentoPorDescricao(string descricao)
+		{
+			return Task.FromResult(_tipoLancamento.Where(a => a.Descricao == descricao));
+		}
+
+		public Task<IEnumerable<TipoLancamento>> ObterTodosAsync()
         {
             return Task.FromResult(_tipoLancamento.Where(a => a.Descricao != null));
         }

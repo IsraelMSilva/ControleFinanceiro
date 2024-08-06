@@ -8,24 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Daniel\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ticin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daniel\\Documents\\ESTUDOS TRAMPO\\Israel\\ControleFinanceiro\\ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj",
+      "projectUniqueName": "C:\\Repositorio Git\\ControleFinanceiro\\ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj",
       "projectName": "ControleFinanceiro.Domain",
-      "projectPath": "C:\\Users\\Daniel\\Documents\\ESTUDOS TRAMPO\\Israel\\ControleFinanceiro\\ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj",
-      "packagesPath": "C:\\Users\\Daniel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daniel\\Documents\\ESTUDOS TRAMPO\\Israel\\ControleFinanceiro\\ControleFinanceiro.Domain\\obj\\",
+      "projectPath": "C:\\Repositorio Git\\ControleFinanceiro\\ControleFinanceiro.Domain\\ControleFinanceiro.Domain.csproj",
+      "packagesPath": "C:\\Users\\ticin\\.nuget\\packages\\",
+      "outputPath": "C:\\Repositorio Git\\ControleFinanceiro\\ControleFinanceiro.Domain\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Daniel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ticin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

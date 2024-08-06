@@ -21,3 +21,15 @@ C:\Users\israe\OneDrive\Documentos\ControleFinanceiro\ControleFinanceiro.Domain\
 C:\Users\israe\OneDrive\Documentos\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\refint\ControleFinanceiro.Domain.dll
 C:\Users\israe\OneDrive\Documentos\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.pdb
 C:\Users\israe\OneDrive\Documentos\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ref\ControleFinanceiro.Domain.dll
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\bin\Debug\net8.0\ControleFinanceiro.Domain.deps.json
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\bin\Debug\net8.0\ControleFinanceiro.Domain.dll
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\bin\Debug\net8.0\ControleFinanceiro.Domain.pdb
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.AssemblyInfoInputs.cache
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.AssemblyInfo.cs
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.csproj.CoreCompileInputs.cache
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.sourcelink.json
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.dll
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\refint\ControleFinanceiro.Domain.dll
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ControleFinanceiro.Domain.pdb
+C:\Repositorio Git\ControleFinanceiro\ControleFinanceiro.Domain\obj\Debug\net8.0\ref\ControleFinanceiro.Domain.dll
