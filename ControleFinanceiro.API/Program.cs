@@ -1,6 +1,7 @@
 using ControleFinanceiro.Application.Interfaces;
 using ControleFinanceiro.Application.Services;
 using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Infrastructure.Repositories;
 using ControleFinanceiro.Infrastructure.Repositories.Mock;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
  builder.Services.AddSwaggerGen();
+
+//Inversao de controle
 builder.Services.AddSingleton<ITipoCategoriaService, TipoCategoriaService>();
 builder.Services.AddSingleton<ITipoCategoriaRepository, TipoCategoriaMock>();
 

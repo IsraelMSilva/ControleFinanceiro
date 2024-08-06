@@ -30,6 +30,11 @@ namespace ControleFinanceiro.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
+        public Task<IEnumerable<TipoEntrada>> ObterTipoEntradaPorDescricao(string descricao)
+        {
+            throw new NotImplementedException();
+        }
+
         public Task<IEnumerable<TipoEntrada>> ObterTodosAsync()
         {
             throw new NotImplementedException();

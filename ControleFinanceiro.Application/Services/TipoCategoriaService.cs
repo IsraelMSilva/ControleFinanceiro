@@ -23,7 +23,7 @@ namespace ControleFinanceiro.Application.Services
 
 		public async Task<TipoCategoria> AdicionarTipoCategoria(AdicionarTipoCategoriaDTO adicionarTipoCategoriaDTO)
 		{
-			TipoCategoria tipoCategoria = TipoCategoria.AdicionarTipoCategoria(adicionarTipoCategoriaDTO.Descricao);
+            TipoCategoria tipoCategoria = TipoCategoria.AdicionarTipoCategoria(adicionarTipoCategoriaDTO.Descricao);
 			return await _tipoCategoriaRepository.CriarAsync(tipoCategoria);
 		}
 
