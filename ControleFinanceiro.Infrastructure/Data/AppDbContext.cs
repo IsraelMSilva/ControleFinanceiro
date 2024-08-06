@@ -13,8 +13,10 @@ namespace ControleFinanceiro.Infrastructure.Data
         public DbSet<Usuario> Usuarios { get; set; }
 		public DbSet<Saida> Saidas { get; set; }
 		public DbSet<TipoCategoria> TipoCategoria { get; set; }
-		public DbSet<TipoSaida> TipoSaida { get; set; }
-		public DbSet<TipoFormaPagamento> TipoFormaPagamento { get; set; }
+        public DbSet<TipoLancamento> TipoLancamento { get; set; }
+        public DbSet<TipoSaida> TipoSaida { get; set; }
+        public DbSet<TipoEntrada> TipoEntrada { get; set; }
+        public DbSet<TipoFormaPagamento> TipoFormaPagamento { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

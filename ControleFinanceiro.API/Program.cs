@@ -13,6 +13,9 @@ builder.Services.AddEndpointsApiExplorer();
  builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<ITipoCategoriaService, TipoCategoriaService>();
 builder.Services.AddSingleton<ITipoCategoriaRepository, TipoCategoriaMock>();
+builder.Services.AddSingleton<ITipoLancamentoRepository, TipoLancamentoMock>();
+builder.Services.AddSingleton<ITipoEntradaRepository, TipoEntradaMock>();
+builder.Services.AddSingleton<ITipoFormaPagamentoRepository, TipoFormaPagamentoMock>();
 
 var app = builder.Build();
 

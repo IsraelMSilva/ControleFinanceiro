@@ -9,5 +9,6 @@ namespace ControleFinanceiro.Domain.Repositories
 {
     public interface ITipoLancamentoRepository : IRepositoryCrud<TipoLancamento>
     {
+        Task<IEnumerable<TipoLancamento>> ObterTipoLancamentoPorDescricao(string descricao);
     }
 }

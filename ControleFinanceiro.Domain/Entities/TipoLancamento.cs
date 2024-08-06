@@ -12,7 +12,8 @@ namespace ControleFinanceiro.Domain.Entities
 
         private Guid _id;
         private string? _descricao;
-		private bool _ativo;
+        private Guid _idTipoLancamento;
+        private bool _ativo;
 
 		public Guid Id
         {
@@ -26,7 +27,13 @@ namespace ControleFinanceiro.Domain.Entities
             private set { _descricao = value; }
         }
 
-		public bool Ativo
+        public Guid IdTipoLancamento
+        {
+            get { return _idTipoLancamento; }
+            private set { _idTipoLancamento = value; }
+        }
+
+        public bool Ativo
 		{
 			get { return _ativo; }
 			private set { _ativo = value; }
@@ -42,8 +49,9 @@ namespace ControleFinanceiro.Domain.Entities
             return tipoLancamento;
         }
 
-        public void AtualizarTipoLancamento(string descricao)
+        public void AtualizarTipoLancamento(string descricao, Guid idTipoLancamento)
         {
+            _idTipoLancamento = idTipoLancamento;
             _descricao = descricao;
         }
 
@@ -51,5 +59,14 @@ namespace ControleFinanceiro.Domain.Entities
 		{
 			_ativo = false;
 		}
-	}
+
+        public void AtualizarTipoLancamentoDescricao(string descricao)
+        {
+            _descricao = descricao;
+        }
+        public void AtualizarIdTipoLancamento(Guid idTipoLancamento)
+        {
+            _idTipoLancamento = idTipoLancamento;
+        }
+    }
 }

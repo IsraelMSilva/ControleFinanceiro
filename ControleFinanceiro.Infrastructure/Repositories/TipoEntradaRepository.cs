@@ -1,5 +1,7 @@
 ﻿using ControleFinanceiro.Domain.Entities;
 using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,45 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 {
     public class TipoEntradaRepository : ITipoEntradaRepository
     {
-        public Task<TipoEntrada> AtualizarAsync(TipoEntrada entity)
+        private readonly AppDbContext _appDbContext;
+        public TipoEntradaRepository(AppDbContext appDbContext)
         {
-            throw new NotImplementedException();
+            _appDbContext = appDbContext;
         }
 
-        public Task<TipoEntrada> CriarAsync(TipoEntrada entity)
+        public async Task<TipoEntrada> AtualizarAsync(TipoEntrada entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.TipoEntrada.Update(entity);
+            await _appDbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task DeletarAsync(TipoEntrada entity)
+        public async Task<TipoEntrada> CriarAsync(TipoEntrada entity)
         {
-            throw new NotImplementedException();
+            await _appDbContext.TipoEntrada.AddAsync(entity);
+            await _appDbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<TipoEntrada> ObterPorIdAsync(Guid id)
+        public async Task DeletarAsync(TipoEntrada entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.TipoEntrada.Update(entity);
+            await _appDbContext.SaveChangesAsync();
         }
 
-        public Task<IEnumerable<TipoEntrada>> ObterTodosAsync()
+        public async Task<TipoEntrada> ObterPorIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            return await _appDbContext.TipoEntrada.FindAsync(id);
+        }
+
+        public async Task<IEnumerable<TipoEntrada>> ObterTipoEntradaPorDescricao(string descricao)
+        {
+            return await _appDbContext.TipoEntrada.Where(a => a.Descricao.Contains(descricao) && a.Ativo).ToListAsync();
+        }
+
+        public async Task<IEnumerable<TipoEntrada>> ObterTodosAsync()
+        {
+            return await _appDbContext.TipoEntrada.Where(x => x.Ativo).ToListAsync();
         }
     }
 }

@@ -11,7 +11,7 @@ namespace ControleFinanceiro.Domain.Entities
         private TipoEntrada() { }
 
         private Guid _id;
-        private string? _descricao;
+        private string _descricao;
         private bool _ativo;
 
         public Guid Id
@@ -20,7 +20,7 @@ namespace ControleFinanceiro.Domain.Entities
             private set { _id = value; }
         }
 
-        public string? Descricao
+        public string Descricao
         {
             get { return _descricao; }
             private set { _descricao = value; }
