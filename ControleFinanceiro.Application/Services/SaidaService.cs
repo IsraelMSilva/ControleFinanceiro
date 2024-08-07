@@ -9,123 +9,150 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ControleFinanceiro.Application.DTOs.SaidaDTO;
-using static ControleFinanceiro.Application.DTOs.TipoSaidaDTO;
 
 namespace ControleFinanceiro.Application.Services
 {
-	public class SaidaService : ISaidaService
-	{
-		private readonly ISaidaRepository _saidaRepository;
-		public SaidaService(ISaidaRepository saidaRepository)
-		{
-			_saidaRepository = saidaRepository;
-		}
+    public class SaidaService : ISaidaService
+    {
+        private readonly ISaidaRepository _saidaRepository;
+        private readonly ITipoSaidaRepository _tipoSaidaRepository;
+        private readonly ITipoFormaPagamentoRepository _tipoFormaPagamentoRepository;
+        private readonly IParcelaRepository _parcelaRepository;
 
-		public async Task<Saida> AdicionarSaida(AdicionarSaidaDTO adicionarSaidaDTO)
-		{
-			Saida saida = Saida.CadastrarSaida(adicionarSaidaDTO.valor,adicionarSaidaDTO.idTipoSaida, adicionarSaidaDTO.idTipoFormaPagamento, adicionarSaidaDTO.dataVencimento, adicionarSaidaDTO.observacao, adicionarSaidaDTO.idParcela);
-			return await _saidaRepository.CriarAsync(saida);
-		}
+        public SaidaService(ISaidaRepository saidaRepository, 
+                            ITipoSaidaRepository tipoSaidaRepository,
+                            ITipoFormaPagamentoRepository tipoFormaPagamentoRepository, 
+                            IParcelaRepository parcelaRepository)
+        {
+            _saidaRepository = saidaRepository;
+            _tipoSaidaRepository = tipoSaidaRepository;
+            _tipoFormaPagamentoRepository = tipoFormaPagamentoRepository;
+            _parcelaRepository = parcelaRepository;
+        }
 
-		public async Task<Saida> AtualizarSaida(AtualizarSaidaDTO atualizarSaidaDTO)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaDTO.Id);
+        public async Task<Saida> AdicionarSaida(AdicionarSaidaDTO adicionarSaidaDTO)
+        {
+            if (await _tipoSaidaRepository.ObterPorIdAsync(adicionarSaidaDTO.idTipoSaida) is null)
+                throw new ArgumentException("Não encontrado o tipo saida");
 
-			if (retorno == null)
-				throw new Exception("Saída não encontrada!");
+            if (await _tipoFormaPagamentoRepository.ObterPorIdAsync(adicionarSaidaDTO.idTipoFormaPagamento) is null)
+                throw new ArgumentException("Não encontrado o tipo de forma de pagamento");
 
-			retorno.EditarSaida(atualizarSaidaDTO.valor, atualizarSaidaDTO.idTipoSaida, atualizarSaidaDTO.idTipoFormaPagamento, atualizarSaidaDTO.dataVencimento, atualizarSaidaDTO.observacao, atualizarSaidaDTO.idParcela);
+            if (await _parcelaRepository.ObterPorIdAsync(adicionarSaidaDTO.idParcela) is null)
+                throw new ArgumentException("Não encontrada parcela");
 
-			return await _saidaRepository.AtualizarAsync(retorno);
-		}
+            Saida saida = Saida.CadastrarSaida(adicionarSaidaDTO.valor, adicionarSaidaDTO.idTipoSaida, adicionarSaidaDTO.idTipoFormaPagamento, adicionarSaidaDTO.dataVencimento, adicionarSaidaDTO.observacao, adicionarSaidaDTO.idParcela);
+            return await _saidaRepository.CriarAsync(saida);
+        }
 
-		public async Task<Saida> AtualizarSaidaDataVencimento(AtualizarSaidaDataVencimentoDTO atualizarSaidaDataVencimentoDTO)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaDataVencimentoDTO.Id);
+        public async Task<Saida> AtualizarSaida(AtualizarSaidaDTO atualizarSaidaDTO)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaDTO.Id);
 
-			if (retorno == null)
-				throw new Exception("Saída não encontrada!");
+            if (retorno == null)
+                throw new Exception("Saída não encontrada!");
 
-			retorno.EditarDataVencimento(atualizarSaidaDataVencimentoDTO.dataVencimento);
+            if (await _tipoSaidaRepository.ObterPorIdAsync(atualizarSaidaDTO.idTipoSaida) is null)
+                throw new ArgumentException("Não encontrado o tipo saida");
 
-			return await _saidaRepository.AtualizarAsync(retorno);
-		}
+            if (await _tipoFormaPagamentoRepository.ObterPorIdAsync(atualizarSaidaDTO.idTipoFormaPagamento) is null)
+                throw new ArgumentException("Não encontrado o tipo de forma de pagamento");
 
-		public async Task<Saida> AtualizarSaidaObservacao(AtualizarSaidaObservacaoDTO atualizarSaidaObservacaoDTO)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaObservacaoDTO.Id);
+            if (await _parcelaRepository.ObterPorIdAsync(atualizarSaidaDTO.idParcela) is null)
+                throw new ArgumentException("Não encontrada parcela");
 
-			if (retorno == null)
-				throw new Exception("Saída não encontrada!");
+            retorno.EditarSaida(atualizarSaidaDTO.valor, atualizarSaidaDTO.idTipoSaida, atualizarSaidaDTO.idTipoFormaPagamento, atualizarSaidaDTO.dataVencimento, atualizarSaidaDTO.observacao, atualizarSaidaDTO.idParcela);
 
-			retorno.EditarObservacao(atualizarSaidaObservacaoDTO.observacao);
+            return await _saidaRepository.AtualizarAsync(retorno);
+        }
 
-			return await _saidaRepository.AtualizarAsync(retorno);
-		}
+        public async Task<Saida> AtualizarSaidaDataVencimento(AtualizarSaidaDataVencimentoDTO atualizarSaidaDataVencimentoDTO)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaDataVencimentoDTO.Id);
 
-		public async Task<Saida> AtualizarSaidaParcela(AtualizarSaidaParcelaDTO atualizarSaidaParcelaDTO)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaParcelaDTO.Id);
+            if (retorno == null)
+                throw new Exception("Saída não encontrada!");
 
-			if (retorno == null)
-				throw new Exception("Saída não encontrada!");
+            retorno.EditarDataVencimento(atualizarSaidaDataVencimentoDTO.dataVencimento);
 
-			retorno.EditarParcela(atualizarSaidaParcelaDTO.idParcela);
+            return await _saidaRepository.AtualizarAsync(retorno);
+        }
 
-			return await _saidaRepository.AtualizarAsync(retorno);
-		}
+        public async Task<Saida> AtualizarSaidaObservacao(AtualizarSaidaObservacaoDTO atualizarSaidaObservacaoDTO)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaObservacaoDTO.Id);
 
-		public async Task<Saida> AtualizarSaidaTipoFormaPagamento(AtualizarSaidaTipoFormaPagamentoDTO atualizarSaidaTipoFormaPagamentoDTO)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaTipoFormaPagamentoDTO.Id);
+            if (retorno == null)
+                throw new Exception("Saída não encontrada!");
 
-			if (retorno == null)
-				throw new Exception("Saída não encontrada!");
+            retorno.EditarObservacao(atualizarSaidaObservacaoDTO.observacao);
 
-			retorno.EditarTipoFormaPagamento(atualizarSaidaTipoFormaPagamentoDTO.idTipoFormaPagamento);
+            return await _saidaRepository.AtualizarAsync(retorno);
+        }
 
-			return await _saidaRepository.AtualizarAsync(retorno);
-		}
+        public async Task<Saida> AtualizarSaidaParcela(AtualizarSaidaParcelaDTO atualizarSaidaParcelaDTO)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaParcelaDTO.Id);
 
-		public async Task<Saida> AtualizarSaidaTipoSaida(AtualizarSaidaTipoSaidaDTO atualizarSaidaTipoSaidaDTO)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaTipoSaidaDTO.Id);
+            if (retorno == null)
+                throw new Exception("Saída não encontrada!");
 
-			if (retorno == null)
-				throw new Exception("Saída não encontrada!");
+            retorno.EditarParcela(atualizarSaidaParcelaDTO.idParcela);
 
-			retorno.EditarTipoSaida(atualizarSaidaTipoSaidaDTO.idTipoSaida);
+            return await _saidaRepository.AtualizarAsync(retorno);
+        }
 
-			return await _saidaRepository.AtualizarAsync(retorno);
-		}
+        public async Task<Saida> AtualizarSaidaTipoFormaPagamento(AtualizarSaidaTipoFormaPagamentoDTO atualizarSaidaTipoFormaPagamentoDTO)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaTipoFormaPagamentoDTO.Id);
 
-		public async Task<Saida> AtualizarSaidaValor(AtualizarSaidaValorDTO atualizarSaidaValorDTO)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaValorDTO.Id);
+            if (retorno == null)
+                throw new Exception("Saída não encontrada!");
 
-			if (retorno == null)
-				throw new Exception("Saída não encontrada!");
+            retorno.EditarTipoFormaPagamento(atualizarSaidaTipoFormaPagamentoDTO.idTipoFormaPagamento);
 
-			retorno.EditarValor(atualizarSaidaValorDTO.valor);
+            return await _saidaRepository.AtualizarAsync(retorno);
+        }
 
-			return await _saidaRepository.AtualizarAsync(retorno);
-		}
+        public async Task<Saida> AtualizarSaidaTipoSaida(AtualizarSaidaTipoSaidaDTO atualizarSaidaTipoSaidaDTO)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaTipoSaidaDTO.Id);
 
-		public async Task RemoverSaida(Guid id)
-		{
-			Saida retorno = await _saidaRepository.ObterPorIdAsync(id);
-			retorno.InativarSaida();
-			await _saidaRepository.AtualizarAsync(retorno);
-		}
+            if (retorno == null)
+                throw new Exception("Saída não encontrada!");
 
-		public async Task<Saida> RetornaSaidaPorId(Guid id)
-		{
-			return await _saidaRepository.ObterPorIdAsync(id);
-		}
+            retorno.EditarTipoSaida(atualizarSaidaTipoSaidaDTO.idTipoSaida);
 
-		public async Task<IEnumerable<Saida>> RetornaTodosSaida()
-		{
-			return await _saidaRepository.ObterTodosAsync();
-		}
-	}
+            return await _saidaRepository.AtualizarAsync(retorno);
+        }
+
+        public async Task<Saida> AtualizarSaidaValor(AtualizarSaidaValorDTO atualizarSaidaValorDTO)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(atualizarSaidaValorDTO.Id);
+
+            if (retorno == null)
+                throw new Exception("Saída não encontrada!");
+
+            retorno.EditarValor(atualizarSaidaValorDTO.valor);
+
+            return await _saidaRepository.AtualizarAsync(retorno);
+        }
+
+        public async Task RemoverSaida(Guid id)
+        {
+            Saida retorno = await _saidaRepository.ObterPorIdAsync(id);
+            retorno.InativarSaida();
+            await _saidaRepository.AtualizarAsync(retorno);
+        }
+
+        public async Task<Saida> RetornaSaidaPorId(Guid id)
+        {
+            return await _saidaRepository.ObterPorIdAsync(id);
+        }
+
+        public async Task<IEnumerable<Saida>> RetornaTodosSaida()
+        {
+            return await _saidaRepository.ObterTodosAsync();
+        }
+    }
 }
