@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.Infrastr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.Application", "ControleFinanceiro.Application\ControleFinanceiro.Application.csproj", "{73CB4B9F-9C4F-4237-81F7-0A12F3A62F6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiro.UI", "ControleFinanceiro.UI\ControleFinanceiro.UI.csproj", "{48C78488-9CA3-48F6-AF2D-FB68C52ACD90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.UI", "ControleFinanceiro.UI\ControleFinanceiro.UI.csproj", "{48C78488-9CA3-48F6-AF2D-FB68C52ACD90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiro.API", "ControleFinanceiro.API\ControleFinanceiro.API.csproj", "{16B3C1DA-13B2-4137-A3C4-AAF6B8764BD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleFinanceiro.API", "ControleFinanceiro.API\ControleFinanceiro.API.csproj", "{16B3C1DA-13B2-4137-A3C4-AAF6B8764BD9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleFinanceiro.IoC", "ControleFinanceiro.IoC\ControleFinanceiro.IoC.csproj", "{FA51F1D0-44AE-4659-B50A-AA4AF6403C37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{16B3C1DA-13B2-4137-A3C4-AAF6B8764BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16B3C1DA-13B2-4137-A3C4-AAF6B8764BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16B3C1DA-13B2-4137-A3C4-AAF6B8764BD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA51F1D0-44AE-4659-B50A-AA4AF6403C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA51F1D0-44AE-4659-B50A-AA4AF6403C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA51F1D0-44AE-4659-B50A-AA4AF6403C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA51F1D0-44AE-4659-B50A-AA4AF6403C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

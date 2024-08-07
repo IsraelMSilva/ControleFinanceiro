@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static ControleFinanceiro.Application.DTOs.TipoCategoriaDTO;
 using static ControleFinanceiro.Application.DTOs.TipoLancamentoDTO;
 
 namespace ControleFinanceiro.Application.Services
@@ -15,6 +14,7 @@ namespace ControleFinanceiro.Application.Services
     public class TipoLancamentoService : ITipoLancamentoService
     {
         private readonly ITipoLancamentoRepository _tipoLancamentoRepository;
+
         public TipoLancamentoService(ITipoLancamentoRepository tipoLancamentoRepository)
         {
             _tipoLancamentoRepository = tipoLancamentoRepository;
