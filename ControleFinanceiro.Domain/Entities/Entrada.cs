@@ -59,6 +59,24 @@ namespace ControleFinanceiro.Domain.Entities
             _idTipoEntrada = idTipoEntrada;
         }
 
+        public void EditarObservacao(string observacao)
+        {
+            _observacao = observacao;
+        }
+
+        public void EditarTipoEntrada(Guid idTipoEntrada)
+        {
+            _idTipoEntrada = idTipoEntrada;
+        }
+
+        public void EditarValor(decimal valor)
+        {
+            if (valor == 0)
+                throw new ArgumentException("Informe o valor");
+
+            _valor = valor;
+        }
+
         public virtual TipoEntrada TipoEntrada { get; set; }
     }
 }
