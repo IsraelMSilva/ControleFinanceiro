@@ -1,5 +1,7 @@
 ﻿using ControleFinanceiro.Domain.Entities;
 using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,24 +12,35 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 {
     public class EntradaRepository : IEntradaRepository
     {
-        public Task<Entrada> AtualizarAsync(Entrada entity)
+        private readonly AppDbContext _appDbContext;
+        public EntradaRepository(AppDbContext appDbContext)
         {
-            throw new NotImplementedException();
+            _appDbContext = appDbContext;
         }
 
-        public Task<Entrada> CriarAsync(Entrada entity)
+        public async Task<Entrada> AtualizarAsync(Entrada entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Entrada.Update(entity);
+            await _appDbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task DeletarAsync(Entrada entity)
+        public async Task<Entrada> CriarAsync(Entrada entity)
         {
-            throw new NotImplementedException();
+            await _appDbContext.Entrada.AddAsync(entity);
+            await _appDbContext.SaveChangesAsync();
+            return entity;
         }
 
-        public Task<Entrada> ObterPorIdAsync(Guid id)
+        public async Task DeletarAsync(Entrada entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Entrada.Update(entity);
+            await _appDbContext.SaveChangesAsync();
+        }
+
+        public async Task<Entrada> ObterPorIdAsync(Guid id)
+        {
+            return await _appDbContext.Entrada.FindAsync(id);
         }
 
         public Task<IEnumerable<Entrada>> ObterTodosAsync()
