@@ -11,7 +11,7 @@ namespace ControleFinanceiro.Infrastructure.Data
     public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(options)
     {
         public DbSet<Entrada> Entrada { get; set; }
-        public DbSet<Lancamento> Lancamento { get; set; }
+        public DbSet<Lancamento> Lancamentos { get; set; }
 		public DbSet<Parcela> Parcelas { get; set; }
 		public DbSet<Saida> Saidas { get; set; }
         public DbSet<TipoCategoria> TipoCategoria { get; set; }

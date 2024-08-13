@@ -12,7 +12,7 @@ namespace ControleFinanceiro.Domain.Entities
 
         private Guid _id;
         private DateTime _data;
-        private Guid _tipoLancamentoId;
+        private Guid _idTipoLancamento;
         private Guid _idSaida;
         private Guid _idEntrada;
         private bool _ativo;
@@ -29,10 +29,10 @@ namespace ControleFinanceiro.Domain.Entities
             private set { _data = value; }
         }
 
-        public Guid TipoLancamentoId
+        public Guid IdTipoLancamento
         {
-            get { return _tipoLancamentoId; }
-            private set { _tipoLancamentoId = value; }
+            get { return _idTipoLancamento; }
+            private set { _idTipoLancamento = value; }
         }
 
         public Guid IdSaida
@@ -62,7 +62,7 @@ namespace ControleFinanceiro.Domain.Entities
             if (dataLancamento == DateTime.MinValue)
                 throw new ArgumentException("Informe a data do lançamento");
 
-            Lancamento lancamento = new() { Id = Guid.NewGuid(), Data = dataLancamento, TipoLancamentoId = idTipoLancamento, IdSaida = idSaida, IdEntrada = idEntrada, Ativo = true };
+            Lancamento lancamento = new() { Id = Guid.NewGuid(), Data = dataLancamento, IdTipoLancamento = idTipoLancamento, IdSaida = idSaida, IdEntrada = idEntrada, Ativo = true };
 
             return lancamento;
         }
@@ -73,7 +73,7 @@ namespace ControleFinanceiro.Domain.Entities
                 throw new ArgumentException("Informe a data do lançamento");
 
             _data = dataLancamento;
-            _tipoLancamentoId = idTipoLancamento;
+			_idTipoLancamento = idTipoLancamento;
             _idSaida = idSaida;
             _idEntrada = idEntrada;
         }
@@ -88,7 +88,7 @@ namespace ControleFinanceiro.Domain.Entities
 
         public void EditarTipoLancamento(Guid idTipoLancamento, Guid idSaida, Guid idEntrada)
         {
-            _tipoLancamentoId = idTipoLancamento;
+			_idTipoLancamento = idTipoLancamento;
             _idSaida = idSaida;
             _idEntrada = idEntrada;
         }

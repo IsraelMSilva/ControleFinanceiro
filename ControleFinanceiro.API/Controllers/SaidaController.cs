@@ -39,5 +39,14 @@ namespace ControleFinanceiro.API.Controllers
                 return BadRequest(ex.Message);
             }
         }
-    }
+
+		//AtualizarSaidaDTO
+		//AtualizarSaidaValorDTO
+		//AtualizarSaidaTipoSaidaDTO
+		//AtualizarSaidaTipoFormaPagamentoDTO
+		//AtualizarSaidaDataVencimentoDTO
+		//AtualizarSaidaObservacaoDTO
+		//AtualizarSaidaParcelaDTO
+		//RemoverSaida
+	}
 }

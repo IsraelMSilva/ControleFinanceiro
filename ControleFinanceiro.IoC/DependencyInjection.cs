@@ -16,7 +16,7 @@ namespace ControleFinanceiro.IoC
         public static IServiceCollection AddInfrastructure(this IServiceCollection services)
         {
             services.AddSingleton<IEntradaRepository, EntradaMock>();
-            
+            services.AddSingleton<ILancamentoRepository, LancamentoMock>();
             services.AddSingleton<IParcelaRepository, ParcelaMock>();
             services.AddSingleton<ISaidaRepository, SaidaMock>();
             services.AddSingleton<ITipoCategoriaRepository, TipoCategoriaMock>();
@@ -32,8 +32,8 @@ namespace ControleFinanceiro.IoC
         public static IServiceCollection AddApplication(this IServiceCollection services)
         {
             services.AddSingleton<IEntradaService, EntradaService>();
-            //LANÇAMENTO AQUI
-            services.AddSingleton<IParcelaService, ParcelaService>();
+			services.AddSingleton<ILancamentoService, LancamentoService>();
+			services.AddSingleton<IParcelaService, ParcelaService>();
             services.AddSingleton<ISaidaService, SaidaService>();
             services.AddSingleton<ITipoCategoriaService, TipoCategoriaService>();
             services.AddSingleton<ITipoEntradaService, TipoEntradaService>();

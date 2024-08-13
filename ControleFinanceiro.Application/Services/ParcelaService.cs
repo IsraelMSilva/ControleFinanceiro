@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static ControleFinanceiro.Application.DTOs.ParcelaDTO;
-using static ControleFinanceiro.Application.DTOs.TipoSaidaDTO;
 
 namespace ControleFinanceiro.Application.Services
 {

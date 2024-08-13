@@ -10,30 +10,42 @@ namespace ControleFinanceiro.Infrastructure.Repositories.Mock
 {
     public class UsuarioMock : IUsuarioRepository
     {
-        public Task<Usuario> AtualizarAsync(Usuario entity)
+		private readonly List<Usuario> _usuarios;
+		public UsuarioMock()
+		{
+			_usuarios = [];
+		}
+
+		public Task<Usuario> AtualizarAsync(Usuario entity)
         {
-            throw new NotImplementedException();
-        }
+			var usuario = _usuarios.First(a => a.Id == entity.Id);
+			return Task.FromResult(usuario);
+		}
 
         public Task<Usuario> CriarAsync(Usuario entity)
         {
-            throw new NotImplementedException();
-        }
+			_usuarios.Add(entity);
+			var usuario = _usuarios.First(a => a.Id == entity.Id);
+
+			return Task.FromResult(usuario);
+		}
 
         public Task DeletarAsync(Usuario entity)
         {
-            throw new NotImplementedException();
-        }
+			_usuarios.Remove(entity);
+			return Task.FromResult(entity);
+		}
 
         public Task<Usuario> ObterPorIdAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
+			var parcela = _usuarios.First(a => a.Id == id);
+			return Task.FromResult(parcela);
+		}
 
         public Task<IEnumerable<Usuario>> ObterTodosAsync()
         {
-            throw new NotImplementedException();
-        }
+			return Task.FromResult(_usuarios.Where(a => a.Ativo));
+		}
 
         public Task<IEnumerable<Usuario>> ObterUsuariosPorNome(string nome)
         {

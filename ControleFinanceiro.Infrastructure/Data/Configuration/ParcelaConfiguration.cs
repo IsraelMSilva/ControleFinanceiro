@@ -14,6 +14,10 @@ namespace ControleFinanceiro.Infrastructure.Data.Configuration
 		public void Configure(EntityTypeBuilder<Parcela> builder)
 		{
 			builder.HasKey(x => x.Id);
+			builder.Property(x => x.TotalParcela).IsRequired();
+			builder.Property(x => x.NumeroParcela).IsRequired();
+			builder.Property(x => x.ValorPago).IsRequired();
+			builder.Property(x => x.DataPagamento).IsRequired();
 			builder.Property(x => x.Ativo).IsRequired();
 		}
 	}

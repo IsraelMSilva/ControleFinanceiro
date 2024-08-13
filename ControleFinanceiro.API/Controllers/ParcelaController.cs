@@ -2,6 +2,7 @@
 using ControleFinanceiro.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 using static ControleFinanceiro.Application.DTOs.ParcelaDTO;
+using static ControleFinanceiro.Application.DTOs.TipoSaidaDTO;
 
 namespace ControleFinanceiro.API.Controllers
 {
@@ -30,7 +31,21 @@ namespace ControleFinanceiro.API.Controllers
 		[HttpPost]
 		public IActionResult AdicionarParcela(AdicionarParcelaDTO adicionarParcelaDTO)
 		{
-			return Ok(_ParcelaService.AdicionarParcela(adicionarParcelaDTO).Result);
+			try
+			{
+				return Ok(_ParcelaService.AdicionarParcela(adicionarParcelaDTO).Result);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
 		}
+
+		//AtualizarParcelaDTO
+		//AtualizarParcelaDataPagamentoDTO
+		//AtualizarParcelaNumeroParcelaDTO
+		//AtualizarParcelaTotalParcelaDTO
+		//AtualizarParcelaValorPagoDTO
+		//RemoverParcela
 	}
 }

@@ -22,6 +22,13 @@ namespace ControleFinanceiro.API.Controllers
 			return Ok(_tipoSaidaService.RetornaTipoSaidaPorId(id).Result);
 		}
 
+		[HttpGet("RetornaTipoSaidaDescricao")]
+		public IActionResult RetornaTipoSaidaDescricao(string descricao)
+		{
+			//.Where(a => a.Descricao.Contains(descricao) && a.Ativo)
+			return Ok(_tipoSaidaService.RetornaTipoSaidaPorDescricao(descricao).Result);
+		}
+
 		[HttpGet("RetornaTodos")]
 		public IActionResult RetornaTodos()
 		{
@@ -31,7 +38,29 @@ namespace ControleFinanceiro.API.Controllers
 		[HttpPost]
 		public IActionResult AdicionarTipoSaida(AdicionarTipoSaidaDTO adicionarTipoSaidaDTO)
 		{
-			return Ok(_tipoSaidaService.AdicionarTipoSaida(adicionarTipoSaidaDTO).Result);
+			try
+			{
+				return Ok(_tipoSaidaService.AdicionarTipoSaida(adicionarTipoSaidaDTO).Result);
+			}
+			catch (Exception ex)
+			{
+				return BadRequest(ex.Message);
+			}
 		}
+
+		//[HttpPost]
+		//public IActionResult AtualizarTipoSaida(AlterarTipoSaidaDTO alterarTipoSaidaDTO)
+		//{
+		//	try
+		//	{
+		//		return Ok(_tipoSaidaService.AtualizarTipoSaida(alterarTipoSaidaDTO).Result);
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		return BadRequest(ex.Message);
+		//	}
+		//}
+
+		//RemoverTipoSaida
 	}
 }

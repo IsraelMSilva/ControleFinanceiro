@@ -1,5 +1,7 @@
 ﻿using ControleFinanceiro.Domain.Entities;
 using ControleFinanceiro.Domain.Repositories;
+using ControleFinanceiro.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,40 @@ namespace ControleFinanceiro.Infrastructure.Repositories
 {
     public class LancamentoRepository : ILancamentoRepository
     {
-        public Task<Lancamento> AtualizarAsync(Lancamento entity)
-        {
-            throw new NotImplementedException();
-        }
+		private readonly AppDbContext _appDbContext;
+		public LancamentoRepository(AppDbContext appDbContext)
+		{
+			_appDbContext = appDbContext;
+		}
 
-        public Task<Lancamento> CriarAsync(Lancamento entity)
+		public async Task<Lancamento> AtualizarAsync(Lancamento entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.Lancamentos.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task DeletarAsync(Lancamento entity)
+        public async Task<Lancamento> CriarAsync(Lancamento entity)
         {
-            throw new NotImplementedException();
-        }
+			await _appDbContext.Lancamentos.AddAsync(entity);
+			await _appDbContext.SaveChangesAsync();
+			return entity;
+		}
 
-        public Task<Lancamento> ObterPorIdAsync(Guid id)
+        public async Task DeletarAsync(Lancamento entity)
         {
-            throw new NotImplementedException();
-        }
+			_appDbContext.Lancamentos.Update(entity);
+			await _appDbContext.SaveChangesAsync();
+		}
 
-        public Task<IEnumerable<Lancamento>> ObterTodosAsync()
+        public async Task<Lancamento> ObterPorIdAsync(Guid id)
         {
-            throw new NotImplementedException();
-        }
+			return await _appDbContext.Lancamentos.FindAsync(id);
+		}
+
+        public async Task<IEnumerable<Lancamento>> ObterTodosAsync()
+        {
+			return await _appDbContext.Lancamentos.Where(x => x.Ativo).ToListAsync();
+		}
     }
 }
